@@ -7,14 +7,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.kafka.model.MessageDTO;
-import com.kafka.service.MessageService;
+import com.kafka.service.ProducerMessageService;
 
 @RestController
 @RequestMapping("/message")
 public class MessageController {
 	
 	@Autowired
-	private MessageService messageService;
+	private ProducerMessageService messageService;
 
 	@PostMapping("/")
 	public void sendMessage(@RequestBody MessageDTO messageDTO) {

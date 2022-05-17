@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import com.kafka.model.MessageDTO;
 
 @Service
-public class MessageServiceImpl implements MessageService {
+public class ProducerMessageServiceImpl implements ProducerMessageService {
 
 	@Autowired
 	private KafkaTemplate<String, String> kafkaTemplate;
@@ -19,5 +19,7 @@ public class MessageServiceImpl implements MessageService {
 			throw new RuntimeException(re);
 		}
 	}
+	
+	
 
 }

@@ -20,4 +20,14 @@ public class MessageController {
 	public void sendMessage(@RequestBody MessageDTO messageDTO) {
 		messageService.sendMessage(messageDTO);
 	}
+	
+	@PostMapping("/partition")
+	public void sendMessageToSpecificPartition(@RequestBody MessageDTO messageDTO) {
+		messageService.sendMessageToSpecificPartition(messageDTO);
+	}
+	
+	@PostMapping("/key")
+	public void sendMessageWithKey(@RequestBody MessageDTO messageDTO) {
+		messageService.sendMessageWithKey(messageDTO);
+	}
 }

@@ -20,6 +20,21 @@ public class ProducerMessageServiceImpl implements ProducerMessageService {
 		}
 	}
 	
+	public void sendMessageToSpecificPartition(MessageDTO messageDTO) {
+		try {
+			kafkaTemplate.send(messageDTO.getName(), messageDTO.getPartition(), messageDTO.getKey(), messageDTO.getBody());
+		} catch (RuntimeException re) {
+			throw new RuntimeException(re);
+		}
+	}
+	
+	public void sendMessageWithKey(MessageDTO messageDTO) {
+		try {
+			kafkaTemplate.send(messageDTO.getName(), messageDTO.getKey(), messageDTO.getBody());
+		} catch (RuntimeException re) {
+			throw new RuntimeException(re);
+		}
+	}
 	
 
 }

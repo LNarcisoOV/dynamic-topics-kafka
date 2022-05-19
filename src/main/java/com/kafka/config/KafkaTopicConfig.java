@@ -8,7 +8,7 @@ import org.springframework.kafka.config.TopicBuilder;
 import com.kafka.util.Constants;
 
 @Configuration
-public class TopicConfig {
+public class KafkaTopicConfig {
 	
 	@Bean
 	public NewTopic topic1() {
@@ -33,6 +33,15 @@ public class TopicConfig {
 		return TopicBuilder
 				.name(Constants.TOPIC_3_NAME)
 				.partitions(3)
+				.replicas(1)
+				.build();
+	}
+	
+	@Bean
+	public NewTopic topic4() {
+		return TopicBuilder
+				.name(Constants.TOPIC_4_NAME)
+				.partitions(4)
 				.replicas(1)
 				.build();
 	}
